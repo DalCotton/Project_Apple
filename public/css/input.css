@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+/* container */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* wrapper */
+.wrapper {
+    float: left;
+    display: block;
+    width: 100%;
+}
+/* input_list */
+.input_list {
+    display: block;
+    width: 500px;
+    margin: 60px auto;
+    border: 1px solid #fff;
+    background-color: #7979cc;
+}
+.input_list > h2 {
+    margin: 10px;
+}
+.input_list > ul {
+    float: left;
+    display: block;
+    width: 100%;
+}
+.input_list > ul > li {
+    float: left;
+    display: block;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    margin: 10px 20px;
+}
+.input_list > ul > li > a {
+    float: left;
+    cursor: pointer;
+    width: 100%;
+    }
+.input_list > ul > li > a:hover,
+.input_list > ul > li > a:focus,
+.input_list > ul > li > a.on {
+    border-bottom: 3px solid coral;
+}
