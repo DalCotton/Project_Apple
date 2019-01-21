@@ -48,4 +48,15 @@ module.exports = function(app){
         //    res.render('index.html');
         //}
     });
+
+    //userInput(스마트컨트랙트)
+    app.get('/search', function(req, res){
+        //if(req.session.user){
+            //
+            res.render('search.html');
+        //}else{
+        //    console.log('need login!');
+        //    res.render('index.html');
+        //}
+    });
 }
