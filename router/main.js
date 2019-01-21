@@ -49,7 +49,7 @@ module.exports = function(app){
         //}
     });
 
-    //userInput(스마트컨트랙트)
+    //search
     app.get('/search', function(req, res){
         //if(req.session.user){
             //
