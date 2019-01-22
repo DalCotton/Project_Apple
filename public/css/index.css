@@ -74,8 +74,10 @@ body {
   font-size: 55px;
   align-items: flex-start;
   justify-content: space-between;
-  padding-left: 500px;
-  padding-right: 500px;
+  margin: 0 auto;
+  width: 500px;
+  /* padding-left: 500px;
+  padding-right: 500px; */
 } 
 
 .back-circle {
@@ -90,15 +92,15 @@ body {
 }
 
 .link-color {
+  color:blue;
+}
+
+.car-barcode {
   color:black;
 }
 
-.apple-color {
+.car-color {
   color:green;
-}
-
-.book-color {
-  color:brown;
 }
 
 .building-color {
