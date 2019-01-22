@@ -59,4 +59,15 @@ module.exports = function(app){
         //    res.render('index.html');
         //}
     });
+
+    //buy
+    app.get('/buy', function(req, res){
+        //if(req.session.user){
+            //
+            res.render('buy.html');
+        //}else{
+        //    console.log('need login!');
+        //    res.render('index.html');
+        //}
+    });
 }
