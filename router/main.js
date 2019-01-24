@@ -7,6 +7,14 @@ var client = mysql.createConnection({
 });
 
 
+client.connect(function(err){
+    if(err){
+        throw err;
+    }
+    console.log("Connected!");
+    
+});
+
 
 module.exports = function(app){
     
@@ -40,34 +48,49 @@ module.exports = function(app){
 
     //userInput(스마트컨트랙트)
     app.get('/input', function(req, res){
-        //if(req.session.user){
-            //
-            res.render('input.html');
-        //}else{
-        //    console.log('need login!');
-        //    res.render('index.html');
-        //}
+        res.render('input.html');
     });
 
     //search
     app.get('/search', function(req, res){
-        //if(req.session.user){
-            //
-            res.render('search.html');
-        //}else{
-        //    console.log('need login!');
-        //    res.render('index.html');
-        //}
+        var body = req.query;
+        var search_sql = "SELECT * FROM carinfo WHERE carid='"+body.carid+"'";
+        client.query(search_sql, function(err, result){
+            if(err){
+                console.log("issue in querystring.");
+            }else{
+                let carinfo = result[0];
+                if(carinfo){
+                    res.render('search.html',{carInfo: carinfo});
+                }else{//자료가 없는경우
+                    res.render('nosearch.html',{carID: body.carid});
+                }
+            }
+        });
+
     });
 
     //buy
     app.get('/buy', function(req, res){
-        //if(req.session.user){
-            //
-            res.render('buy.html');
-        //}else{
-        //    console.log('need login!');
-        //    res.render('index.html');
-        //}
+        var list_sql = "SELECT * FROM carinfo";
+        client.query(list_sql, function(err, result){
+            if(err){
+                console.log("issue in querystring.");
+            }else{
+                let carinfo = result;
+                if(carinfo){
+                    res.render('buy.html',{carList:carinfo, carimg: 'carimg/'+carinfo[0].carimg});
+                }else{
+                    res.render(`
+                    <!doctype html>
+                    <html>
+                    <body>
+                        <p>자동차 목록이 존재하지 않습니다.</p>
+                    </body>
+                    </html>
+                `);
+                }
+            }
+        });
     });
 }
