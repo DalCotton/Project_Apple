@@ -67,7 +67,23 @@ h1 {
 
 }
 .box_cont > dl > dd > .box_img {
+    float: left;
     width: 100%;
     min-height: 10px;
     background-color: #fff;
+    overflow: hidden;
+}
+.box_img > img {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+/* nosearch */
+.back_btn {
+    font-weight: bold;
+}
+.back_btn:hover,
+.back_btn:focus {
+    color: coral;
 }
