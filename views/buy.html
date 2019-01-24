@@ -6,26 +6,41 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="main.js"></script>
+    
 </head>
 <body>
     
     <div class="header">
         <span class="header-name">공차</span>
     </div>
+    <div class="menu-bar">
+        <span class="menu-sub"><a href="#">블록정보</a></span>
+        <span class="menu-sub"><a href="#">중고차 매물</a></span>
+        <span class="menu-sub"><a href="#">팀 소개</a></span>
+    </div>
     <div class="car-content">
+
+    <%
+        for(var i=0; i<carList.length ;i++){
+            
+    %>
+    <a href="./search?carid=<%=carList[i].carid%>">
     <div class="car-box">
-        <img class="car-container" src="images/car1.PNG" alt="">
+        <img class="car-container" src="carimg/<%=carList[i].carimg%>" alt="">
         <div class="car-name">
             <ul>
-                <li class="car-font">2018 아반떼</li>
-                <li>2018/02 | 5,938 km | 풀옵션</li>
-                <li class="car-cost">1800 만원</li>
+                <li class="car-font"><%=carList[i].carname%></li>
+                <li><%=carList[i].carmyear%> | <%=carList[i].cardistance%> | <%=carList[i].carsize%></li>
+                <li class="car-cost"><%=carList[i].carprice%></li>
             </ul>
         </div>
-
     </div>
-    <div class="car-box"><img class="car-container" src="images/car2.PNG" alt="">
+    </a>
+    <%
+        }
+    %>
+
+    <!--div class="car-box"><img class="car-container" src="images/car2.PNG" alt="">
         <div class="car-name">
             <ul>
                 <li class="car-font">몬스터 듀얼모터 전동킥보드</li>
@@ -81,7 +96,7 @@
                 <li>2015/06 | 129,356 km | 스탠다드</li>
                 <li class="car-cost">3600 만원</li>
             </ul>
-        </div></div>
+        </div></div-->
 </div>
 </body>
 </html>
