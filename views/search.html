@@ -37,14 +37,28 @@
           </div>
           <div class="box_cont">
             <dl>
+              <dt>차량번호</dt>
+              <dd><%=carInfo.carid%></dd>
+              <dt>제시번호</dt>
+              <dd><%=carInfo.itemnm%></dd>
               <dt>브랜드</dt>
-              <dd></dd>
-              <dt>자동차명(차종)</dt>
-              <dd></dd>
+              <dd><%=carInfo.brand%></dd>
+              <dt>자동차명</dt>
+              <dd><%=carInfo.carname%></dd>
+              <dt>차종</dt>
+              <dd><%=carInfo.carkind%></dd>
+              <dt>용도</dt>
+              <dd><%=carInfo.caruse%></dd>
               <dt>엔진</dt>
-              <dd></dd>
+              <dd><%=carInfo.engine%></dd>
               <dt>생산년도</dt>
-              <dd></dd>
+              <dd><%=carInfo.carmyear%></dd>
+              <dt>주행거리</dt>
+              <dd><%=carInfo.cardistance%></dd>
+              <dt>색상</dt>
+              <dd><%=carInfo.carcolor%></dd>
+              <dt>변속기</dt>
+              <dd><%=carInfo.cartransmission%></dd>
             </dl>
           </div>
         </div>
@@ -56,10 +70,12 @@
             <dl>
               <dt>이미지</dt>
               <dd>
-                <div class="box_img"></div>
+                <div class="box_img">
+                  <img src="carimg/<%=carInfo.carimg%>" alt="자동차 이미지">
+                </div>
               </dd>
               <dt>크기(공간)</dt>
-              <dd></dd>
+              <dd><%=carInfo.carsize%></dd>
             </dl>
           </div>
         </div>
@@ -70,11 +86,11 @@
           <div class="box_cont">
             <dl>
               <dt>사고이력</dt>
-              <dd>보험사의 사고이력</dd>
+              <dd><%=carInfo.acchis%></dd>
               <dt>경매이력</dt>
-              <dd>자동차 경매장 경매 이력</dd>
+              <dd><%=carInfo.auchis%></dd>
               <dt>정기검사</dt>
-              <dd>정기검사 이력</dd>
+              <dd><%=carInfo.reguins%></dd>
             </dl>
           </div>
         </div>
@@ -84,8 +100,12 @@
           </div>
           <div class="box_cont">
             <dl>
+              <dt>형식</dt>
+              <dd><%=carInfo.carform%></dd>
+              <dt>저당권</dt>
+              <dd><%=carInfo.carmort%></dd>
               <dt>가격</dt>
-              <dd></dd>
+              <dd><%=carInfo.carprice%></dd>
             </dl>
           </div>
         </div>
@@ -96,11 +116,11 @@
           <div class="box_cont">
             <dl>
               <dt>문제점(결함)</dt>
-              <dd></dd>
+              <dd><%=carInfo.cardefect%></dd>
               <dt>평점</dt>
-              <dd></dd>
-              <dt>댓글</dt>
-              <dd></dd>
+              <dd><%=carInfo.carstar%></dd>
+              <!--dt>댓글</dt>
+              <dd></dd-->
             </dl>
           </div>
         </div>
