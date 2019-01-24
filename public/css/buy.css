@@ -1,4 +1,7 @@
-
+* {
+    margin: 0;
+    padding: 0;
+}
 ul, ol {
     list-style: none;
 }
@@ -10,12 +13,15 @@ body {
 
 .header{
     background-color: white;
-    position: absolute;
+    /*position: relative;
     top:0;
-    left: 0;
+    left: 0;*/
+    float: left;
     width: 100%;
     height: 15%;
 }
+
+
 
 .header-name {
     
@@ -33,21 +39,47 @@ body {
     position: relative;
     display: flex;
     justify-content: space-around;
-    height: 100vh;
+    width: 1200px;
+    height: 100px;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top:250px;
+    margin:200px auto;
 }
 
+.menu-bar {
+    background-color: #615852;
+    color:white;
+    font-weight: bold;
+    font-size:16px;
+    clear: both;
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.menu-sub{
+    /* justify-content: center;
+    text-align: center; */
+    /* display: flex;
+  align-items: center;
+  flex-direction: column; */
+    color:white;
+    font-size:20px;
+       
+}
+
+
 .car-box {
-    float: left;
-    display: inline;
+    /* float: left; */
+    position: relative;
+    display: block;
     background-color:white;
+    margin: 20px;
     width:300px;
     height: 300px;
     justify-content: center;
     align-items: center;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
 }
 
 .car-container {
