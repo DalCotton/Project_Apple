@@ -12,6 +12,9 @@
     />
     <title>BlockChain</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/search.js"></script>
+
+    </script>
   </head>
   <body>
     <span class="js-logout">Logout</span>
@@ -22,9 +25,11 @@
     </div>
     </header>
     <div class="search-bar">
-      <input type="text" id="textfield" placeholder="차량 고유번호를 입력하세요."/>
+      <input type="text" id="textfield"  placeholder="차량 고유번호를 입력하세요."/>
       <div class ="icon-space1">
-        <a href="./search"><i class="fas fa-search fa-3x"></i></a>
+        <a id="btnsearch" onclick="goSearch();">
+        <i class="fas fa-search fa-3x"></i>
+        </a>
     </div>
   </div>
     
@@ -32,12 +37,31 @@
     </div>
     <section class = "icon-contents">
       <div class ="back-circle">
-      <div class ="link-color"><i class="fas fa-link"></i> <span class = "back-text">블록 정보</span></div></div>
+        <div class ="link-color">
+          <a href="#">
+            <i class="fas fa-link"></i> <span class = "back-text">블록 정보</span>
+          </a>
+        </div>
+      </div>
+      <!--div class ="back-circle">
+        <div class ="car-barcode">
+          <a href="#">
+            <i class="fas fa-barcode"></i></i><span class = "back-text">사고 조회</span>
+          </a>
+        </div>
+      </div-->
+      <div class ="back-circle car-color">
+        <a href="./buy">
+          <i class="fas fa-car-alt"></i><span class = "back-text">중고차 매물</span>
+        </a>
+      </div>
       <div class ="back-circle">
-      <div class ="car-barcode"><i class="fas fa-barcode"></i></i><span class = "back-text">사고 조회</span></div></div>
-      <div class ="back-circle car-color"><a href="./buy"><i class="fas fa-car-alt"></i><span class = "back-text">중고차 매물</span></a></div>
-      <div class ="back-circle">
-      <div class ="building-color"><i class="far fa-building"></i><span class = "back-text">팀 소개</span></div></div>
+        <div class ="building-color">
+          <a href="#">
+            <i class="far fa-building"></i><span class = "back-text">팀 소개</span>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- <div class = "icon-text">
