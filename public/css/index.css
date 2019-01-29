@@ -40,14 +40,23 @@ body {
   display: block;
 }
 
+.back_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  align-content: center;
+  z-index: -1;
+  opacity: 0.8;
+}
 .bgImage{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100%;
-  align-content: center;
-  z-index:-1;
+  height: 100%;
   animation: fadeIn .5s linear;
 }
 
@@ -79,13 +88,13 @@ body {
 }
 
 .icon-contents {
-  padding: 70px 150px; /*top, right, bottom, left*/ 
+  padding: 70px 0px; /*top, right, bottom, left*/ 
   display: flex;
   font-size: 55px;
   align-items: flex-start;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin: 0 auto;
-  width: 500px;
+  max-width: 500px;
   /* padding-left: 500px;
   padding-right: 500px; */
 } 
@@ -96,6 +105,7 @@ body {
   border-radius:50%;
   background: white;
   cursor: pointer; 
+  margin: 0 auto;
   
   text-align:center;  /*가로정렬*/
   /* line-height:75px;  세로 정렬  */
