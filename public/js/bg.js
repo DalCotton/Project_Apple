@@ -1,6 +1,6 @@
-const body =document.querySelector("body");
+const body =document.querySelector("body > .back_img");
 
-const IMG_NUMBER = 1;
+const IMG_NUMBER = 3;
 
 function handleImgLoad() {
     console.log("finished loading");
@@ -19,8 +19,16 @@ function genRandom(){
 }
 
 function init() {
-    const randomNumber = genRandom();
-    paintImage(randomNumber)
+    //const randomNumber = genRandom();
+    for(var i=0;i<IMG_NUMBER;i++){
+        setTimeout("sleep("+i+")",i*5000);
+    }
+}
+
+function sleep(num){
+    //alert('hello');
+    paintImage(num);
+    //console.log('5 sec');
 }
 
 init();
