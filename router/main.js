@@ -50,6 +50,9 @@ module.exports = function(app){
     app.get('/input', function(req, res){
         res.render('input.html');
     });
+    app.post('/input', function(req, res){
+        //res.render('input.html');
+    });
 
     //search
     app.get('/search', function(req, res){
