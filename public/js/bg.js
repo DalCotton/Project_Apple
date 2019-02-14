@@ -1,6 +1,6 @@
 const body =document.querySelector("body > .back_img");
 
-const IMG_NUMBER = 4;
+const IMG_NUMBER = 3;
 
 function handleImgLoad() {
     console.log("finished loading");
