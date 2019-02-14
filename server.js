@@ -16,4 +16,5 @@ var server = app.listen(3000, function(){
 
 //정적파일(css,js,image)
 app.use(express.static('public'));
+app.use('/users',express.static('public/carimg'));
 
