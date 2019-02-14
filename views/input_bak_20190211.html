@@ -1,0 +1,134 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous"
+        />
+        <title>BlockChain</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/search.css" />
+    </head>
+    <body>
+        <div class = "container">
+            <h1>차량 등록</h1>
+            <div class = "wrapper">
+                <!-- //필요항목 정리 -->
+                <!-- 
+                1. 차 정보(브랜드, 자동차명, 엔진, 생산년도)
+                2. 디자인(차 이미지, 크기(공간))
+                3. 정비/수리 이력(보험사의 사고 이력, 자동차경매장 경매이력, 자동차 정기검사 내역)
+                4. 자동차 등록 정보(차종, 용도, 형식, 저당권 등)
+                5. 가격
+                6. 그외(문제점(결함), 평점, 댓글...)
+                ==> 1,4는 합쳐도 될듯.
+                -->
+                
+                <form method="POST" id="carinput_frm" action="#">
+                    <div class="info_box">
+                        <div class="box_header">
+                            <p>자동차 등록 정보</p>
+                        </div>
+                        <div class="box_cont">
+                            <dl>
+                                <dt>차량번호</dt>
+                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
+                                <dt>배기량</dt>
+                                <input type="text" class="input-info" placeholder="">
+                                <dt>연식</dt>
+                                <input type="text" class="input-info" placeholder="">
+                                <dt>색상</dt>
+                                <input type="text" class="input-info" placeholder="">
+                                <dt>주행거리</dt>
+                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
+                                <dt>제시번호</dt>
+                                <input type="text" class="input-info" placeholder="">
+                                <dt>변속기</dt>
+                                <input type="text" class="input-info" placeholder="">
+                                <dt>압류/저당</dt>
+                                <input type="text" class="input-info" placeholder="">
+                                <dt>연료</dt>
+                                <input type="text" class="input-info" placeholder="">
+                                <dt>세금미납</dt>
+                                <input type="text" class="input-info" placeholder="">
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="info_box">
+                        <div class="box_header">
+                            <p>자동차 디자인</p>
+                        </div>
+                        <div class="box_cont">
+                            <dl>
+                                <dt>이미지</dt>
+                                <dd>
+                                    <div class="box_img">
+                                        <input type="file" id="imgUpload" title="이미지 올리기">
+                                        <div id="holder">
+                                                <p id="status" class="success"></p>
+                                                <!--img src="#" alt="보여질 이미지"-->
+                                            </div>
+                                    </div>
+                                </dd>
+                                <dt>크기(공간)</dt>
+                                <dd>
+                                    <select>
+                                        <option selected>--</option>
+                                        <option value="1">1인승</option>
+                                        <option value="2">2인승</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="info_box">
+                        <div class="box_header">
+                            <p>자동차 정비/수리 </p>
+                        </div>
+                        <div class="box_cont">
+                            <dl>
+                                <dt>사고이력</dt>
+                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
+                                <dt>경매이력</dt>
+                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
+                                <dt>정기검사</dt>
+                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="info_box">
+                        <div class="box_header">
+                            <p>희망 가격</p>
+                        </div>
+                        <div class="box_cont">
+                            <dl>
+                                <dt>가격</dt>
+                                <input type="text" class="input-info" placeholder="">
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="info_box">
+                        <div class="box_header">
+                            <p>그 외</p>
+                        </div>
+                        <div class="box_cont">
+                            <dl>
+                                <dt>문제점(결함)</dt>
+                                <input type="text" class="input-info1" placeholder="">
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="frm_btn">
+                        <input type="submit" id="frm_btn" value="차량등록">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="/js/img_ex.js"></script>
+    </body>
+    </html>
