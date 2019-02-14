@@ -29,33 +29,64 @@
                 ==> 1,4는 합쳐도 될듯.
                 -->
                 
-                <form method="POST" id="carinput_frm" action="#">
+                <div class="box_top">
+                    <p><span class="red">*</span>필수 입력항목입니다.</p>
+                    <p><span class="blue">*</span>이 정보는 블록체인에 저장됩니다.</p>
+                </div>
+                <form method="POST" id="carinput_frm" enctype="multipart/form-data" action="#">
                     <div class="info_box">
                         <div class="box_header">
                             <p>자동차 등록 정보</p>
                         </div>
                         <div class="box_cont">
                             <dl>
-                                <dt>차량번호</dt>
-                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
-                                <dt>배기량</dt>
-                                <input type="text" class="input-info" placeholder="">
-                                <dt>연식</dt>
-                                <input type="text" class="input-info" placeholder="">
-                                <dt>색상</dt>
-                                <input type="text" class="input-info" placeholder="">
-                                <dt>주행거리</dt>
-                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
-                                <dt>제시번호</dt>
-                                <input type="text" class="input-info" placeholder="">
-                                <dt>변속기</dt>
-                                <input type="text" class="input-info" placeholder="">
-                                <dt>압류/저당</dt>
-                                <input type="text" class="input-info" placeholder="">
-                                <dt>연료</dt>
-                                <input type="text" class="input-info" placeholder="">
-                                <dt>세금미납</dt>
-                                <input type="text" class="input-info" placeholder="">
+                                <dt><span class="red">*</span>차명</dt>
+                                <dd>
+                                    <input type="text" name="carName" maxlength="50" class="input-info">
+                                </dd>
+                                <dt><span class="blue">*</span>자동차등록번호</dt>
+                                <dd>
+                                    <input type="text" name="carNum" class="input-info" maxlength="10">
+                                </dd>
+                                <dt><span class="red">*</span>차대번호</dt>
+                                <dd>
+                                    <input type="text" name="carId" class="input-info">
+                                    <!--p><span class="red">※이미 해당 차대번호가 존재합니다.</span></p-->
+                                </dd>
+                                <dt><span class="blue">*</span>주행거리</dt>
+                                <dd>
+                                    <input type="number" name="carDistance" class="input-number" min="100" value="100" maxlength="15"><span>Km</span>
+                                </dd>
+                                <dt><span class="blue">*</span>계기 상태</dt>
+                                <dd>
+                                    <input type="radio" name="instrument" id="panel1" class="radio-info" value="O" checked>
+                                    <label for="panel1">작동양호</label>
+                                    <input type="radio" name="instrument" id="panel2" value="X" class="radio-info">
+                                    <label for="panel2">작동불량</label>
+                                </dd>
+                                <dt><span class="blue">*</span>연식</dt>
+                                <dd>
+                                    <input type="number" name="carMyear" min="1900" max="2099" maxlength="4" step="1" value="2019" class="input-number"><span>년</span>
+                                </dd>
+                                <dt>검사유효기간</dt>
+                                <dd>
+                                    <input type="date" id="dt_from" name="chkDtFrom" class="input-info"><label for="dt_from">부터</label>
+                                    <input type="date" id="dt_to" name="chkDtTo" class="input-info"><label for="dt_to">까지</label>
+                                </dd>
+                                <dt>최초등록일</dt>
+                                <dd>
+                                    <input type="date" id="dt_registration" name="firstRegiDt" class="input-info">
+                                </dd>
+                                <dt>보증유형</dt>
+                                <dd>
+                                    <input type="radio" name="assurance" id="self" class="radio-info" value="S" checked><label for="self">자가 보증</label>
+                                    <input type="radio" name="assurance" id="insurer" class="radio-info" value="I"><label for="insurer">보험사 보증</label>
+                                </dd>
+                                <dt>불법구조변경</dt>
+                                <dd>
+                                    <input type="radio" name="illegalchange" id="Nochange" class="input-info" value="N" checked><label for="Nochange">없음</label>
+                                    <input type="radio" name="illegalchange" id="illegal" class="input-info" value="Y"><label for="illegal">있음</label>
+                                </dd>
                             </dl>
                         </div>
                     </div>
@@ -68,19 +99,26 @@
                                 <dt>이미지</dt>
                                 <dd>
                                     <div class="box_img">
-                                        <input type="file" id="imgUpload" title="이미지 올리기">
+                                        <input type="file" name="carImage" id="imgUpload" title="이미지 올리기">
                                         <div id="holder">
                                                 <p id="status" class="success"></p>
                                                 <!--img src="#" alt="보여질 이미지"-->
                                             </div>
                                     </div>
                                 </dd>
+                                <dt>색상</dt>
+                                <dd>
+                                    <input type="color" name="carColor" value="#ffffff" class="input-info">
+                                </dd>
                                 <dt>크기(공간)</dt>
                                 <dd>
-                                    <select>
+                                    <select name="carSize">
                                         <option selected>--</option>
                                         <option value="1">1인승</option>
                                         <option value="2">2인승</option>
+                                        <option value="3">3인승</option>
+                                        <option value="4">4인승</option>
+                                        <option value="Z">그 외</option>
                                     </select>
                                 </dd>
                             </dl>
@@ -92,12 +130,39 @@
                         </div>
                         <div class="box_cont">
                             <dl>
-                                <dt>사고이력</dt>
-                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
-                                <dt>경매이력</dt>
-                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
-                                <dt>정기검사</dt>
-                                <input type="text" class="input-info" placeholder="이 정보는 블록체인에 저장됩니다">
+                                <dt>사고/침수(단순수리 제외)</dt>
+                                <dd>
+                                    <input type="radio" name="acciorflooding" id="accident" class="input-info" value="O" checked><label for="accident">유</label>
+                                    <input type="radio" name="acciorflooding" id="Noaccident" class="input-info" value="X"><label for="Noaccident">무</label>
+                                </dd>
+                                <dt>외판 부위의 판금, 용접수리 및 교환</dt>
+                                <dd>
+                                    <p><input type="checkbox" name="skinRepair" id="hood" value="1A"><label for="hood">후드</label></p>
+                                    <p><input type="checkbox" name="skinRepair" id="frontFender" value="1B"><label for="frontFender">프론트휀더</label></p>
+                                    <p><input type="checkbox" name="skinRepair" id="door" value="1C"><label for="door">도어</label></p>
+                                    <p><input type="checkbox" name="skinRepair" id="trunkRead" value="1D"><label for="trunkRead">트렁크리드</label></p>
+                                    <p><input type="checkbox" name="skinRepair" id="radiatorSupport" value="1E"><label for="radiatorSupport">라디에이터 서포트(볼트체결부품)</label></p>
+                                    <p><input type="checkbox" name="skinRepair" id="roofPanel" value="1F"><label for="roofPanel">루프패널</label></p>
+                                    <p><input type="checkbox" name="skinRepair" id="quarterPanel" value="1G"><label for="quarterPanel">쿼터패널</label></p>
+                                    <p><input type="checkbox" name="skinRepair" id="sideSealPanel" value="1H"><label for="sideSealPanel">사이드실패널</label></p>
+                                </dd>
+                                <dt>주요골격 부위의 판금, 용접 수리 및 교환</dt>
+                                <dd>
+                                    <p><input type="checkbox" name="mainRepair" id="frontPanel" value="2A"><label for="frontPanel">프론트패널</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="crossMember" value="2B"><label for="crossMember">크로스멤버</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="insidePanel" value="2C"><label for="insidePanel">인사이드패널</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="sideMember" value="2D"><label for="sideMember">사이드멤버</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="wheelHouse" value="2E"><label for="wheelHouse">휠하우스</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="dashPanel" value="2F"><label for="dashPanel">대쉬패널</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="floorPanel" value="2G"><label for="floorPanel">플로워패널</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="fillerPanel" value="2H"><label for="fillerPanel">필러패널</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="rearPanel" value="2I"><label for="rearPanel">리어패널</label></p>
+                                    <p><input type="checkbox" name="mainRepair" id="trunkFloor" value="2J"><label for="trunkFloor">트렁크플로워</label></p>
+                                </dd>
+                                <dt>특기사항 및 점검자 의견</dt>
+                                <dd>
+                                    <textarea id="txt_etc" name="Txtetc" rows="10" placeholder="기타의견을 입력하세요."></textarea>
+                                </dd>
                             </dl>
                         </div>
                     </div>
@@ -108,23 +173,33 @@
                         <div class="box_cont">
                             <dl>
                                 <dt>가격</dt>
-                                <input type="text" class="input-info" placeholder="">
+                                <dd>
+                                    <input type="number" name="carPrice" class="input-number" min="0" placeholder="최저기준가를 입력하세요."><span>원</span>
+                                </dd>
                             </dl>
                         </div>
                     </div>
-                    <div class="info_box">
-                        <div class="box_header">
-                            <p>그 외</p>
+                    <div class="box_bottom">
+                        <div class="center">
+                            <p>※자동차관리법 제58조 제1항 및 동법시행규칙 제120조 제1항에 따라 중고자동차의 성능, 상태를 점검하였음을 확인합니다.</p>
+                            <p><input type="date" id="dt_carConfirm" name="carConfirmDt"></p><!--(점검받은 날짜 입력)-->
                         </div>
-                        <div class="box_cont">
-                            <dl>
-                                <dt>문제점(결함)</dt>
-                                <input type="text" class="input-info1" placeholder="">
-                            </dl>
+                        <div class="right">
+                            <P><b>중고자동차 성능, 상태 점검자 </b><input type="text" id="inspector_nm" name="inspectorName" maxlength="25" placeholder="서명하세요.">(인)</P>
+                            <p><b>중고자동차 성능, 상태 고지자 </b><input type="text" id="informer_nm" name="informerName" maxlength="25" placeholder="서명하세요.">(인)</P>
                         </div>
                     </div>
-                    <div class="frm_btn">
-                        <input type="submit" id="frm_btn" value="차량등록">
+                    <div class="box_bottom">
+                        <div class="center">
+                            <p>※본인은 위 중고자동차 성능, 상태점검기록부를 교부받은 사실을 확인함.</p>
+                            <p><input type="date" id="dt_Grant" name="grantDt"></p>
+                        </div>
+                        <div class="right">
+                            <p><span>매수인</span><input type="text" maxlength="15" id="buyer_nm" name="buyerName" placeholder="서명하세요.">(인)</p>
+                        </div><!-- (사실확인 날짜 입력) -->
+                    </div>
+                    <div class="box_btn">
+                        <input type="submit" class="frm_btn" value="차량등록">
                     </div>
                 </form>
             </div>
