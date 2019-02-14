@@ -15,6 +15,28 @@ client.connect(function(err){
     
 });
 
+/** == ImageUpload npm Multer == */
+//Multer Module(imgupload)
+var multer = require('multer');
+
+//imageUpload(multer, storage)
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'public/carimg/');//콜백함수(cb)를 통해 전송된 파일 저장 디렉토리 설정.
+    },
+    filename: function(req, file, cb){
+        cb(null, new Date().valueOf() + "_" + file.originalname);
+    }
+});
+var upload = multer({storage: storage});
+/*
+const upload = multer({ dest: 'uploads/', limits: { fileSize: 5*1024*1024 } });//지정경로(dest), 크기(limits)(5MB)
+app.post('/up', upload.single('img'), (req, res) => {//이미지파일'하나'받음
+    console.log(req.file);//업로드이미지
+});
+*/
+/** == ImageUpload npm Multer == */
+
 
 module.exports = function(app){
     
@@ -46,13 +68,51 @@ module.exports = function(app){
         //
     });
 
-    //userInput(스마트컨트랙트)
+    //userInput
     app.get('/input', function(req, res){
         res.render('input.html');
     });
-    app.post('/input', function(req, res){
-        //res.render('input.html');
-    });
+    app.post('/input', upload.single('carImage'), function(req, res){
+        var body = req.body;
+        //console.log(body.carColor);
+
+        //imageUpload
+        //res.send('Uploaded! : '+req.file);
+        //filename
+        //console.log(req.file.filename);
+        let carImage = 'null';
+        if(req.file){
+            carImage = req.file.filename;
+
+        }
+        
+        let carskinRepair = '"'+body.skinRepair+'"';
+        let carmainRepair = '"'+body.mainRepair+'"';
+        var values = [
+            [body.carId, body.carNum, '', body.carName, body.carDistance,
+            body.instrument, '', body.carMyear, body.chkDtFrom, body.chkDtTo,
+            body.firstRegiDt, body.assurance, body.illegalchange, carImage, body.carColor,
+            body.carSize, body.acciorflooding, carskinRepair, carmainRepair, body.Txtetc,
+            body.carPrice, body.carConfirmDt, body.inspectorName, body.informerName, body.grantDt,
+            body.buyerName, '0']
+        ];
+        var ins_sql = "INSERT INTO carinfo (carid, itemnm, brand, carname, cardistance, "+
+                        "instrument_status, engine, carmyear, chkdatefrom, chkdateto,"+
+                        "firstregidate, assurance, illegalchange, carimg, carcolor,"+
+                        "carsize, acciorflooding, carskinRepair, carmainRepair, carremarks,"+
+                        "carprice, carconfirmdate, inspector, informer, cargrantdate,"+
+                        "buyer, carstar) VALUES ?";
+        client.query(ins_sql, [values], function(err, result){
+            if(err){
+                console.log("issue in querystring.");
+                throw err;
+            }else{
+                //alert("차량 등록 완료.");
+                //res.render('input.html');
+                res.redirect('/');
+            }
+        });
+});
 
     //search
     app.get('/search', function(req, res){
@@ -61,6 +121,7 @@ module.exports = function(app){
         client.query(search_sql, function(err, result){
             if(err){
                 console.log("issue in querystring.");
+                throw err;
             }else{
                 let carinfo = result[0];
                 if(carinfo){
@@ -79,6 +140,7 @@ module.exports = function(app){
         client.query(list_sql, function(err, result){
             if(err){
                 console.log("issue in querystring.");
+                throw err;
             }else{
                 let carinfo = result;
                 if(carinfo){
