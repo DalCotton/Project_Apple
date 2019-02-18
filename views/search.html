@@ -37,28 +37,36 @@
           </div>
           <div class="box_cont">
             <dl>
-              <dt>차량번호</dt>
-              <dd><%=carInfo.carid%></dd>
-              <dt>제시번호</dt>
-              <dd><%=carInfo.itemnm%></dd>
-              <dt>브랜드</dt>
-              <dd><%=carInfo.brand%></dd>
-              <dt>자동차명</dt>
+              <dt>차명</dt>
               <dd><%=carInfo.carname%></dd>
-              <dt>차종</dt>
-              <dd><%=carInfo.carkind%></dd>
-              <dt>용도</dt>
-              <dd><%=carInfo.caruse%></dd>
-              <dt>엔진</dt>
-              <dd><%=carInfo.engine%></dd>
-              <dt>생산년도</dt>
-              <dd><%=carInfo.carmyear%></dd>
+              <dt>자동차등록번호</dt>
+              <dd><%=carInfo.itemnm%></dd>
+              <dt>차대번호</dt>
+              <dd><%=carInfo.carid%></dd>
               <dt>주행거리</dt>
-              <dd><%=carInfo.cardistance%></dd>
-              <dt>색상</dt>
-              <dd><%=carInfo.carcolor%></dd>
-              <dt>변속기</dt>
-              <dd><%=carInfo.cartransmission%></dd>
+              <dd><%=carInfo.cardistance%>km</dd>
+              <dt>계기 상태</dt>
+              <dd>
+                <% if(carInfo.instrument_status=='O'){ %> 작동양호 <% }else if(carInfo.instrument_status=='X'){ %> 작동불량 <% }else{ %>-<% } %>
+              </dd>
+              <dt>연식</dt>
+              <dd><%=carInfo.carmyear%></dd>
+              <dt>검사유효기간</dt>
+              <dd>
+                <%=carInfo.chkfromdt%> ~ <%=carInfo.chktodt%>
+              </dd>
+              <dt>최초등록일</dt>
+              <dd>
+                <%=carInfo.firstredt%>
+              </dd>
+              <dt>보증유형</dt>
+              <dd>
+                <% if(carInfo.assurance=='S'){ %> 자가 보증 <% }else if(carInfo.assurance=='I'){ %> 보험사 보증 <% }else{ %>-<% } %>
+              </dd>
+              <dt>불법구조변경</dt>
+              <dd>
+                <% if(carInfo.illegalchange=='N'){ %> 없음 <% }else if(carInfo.illegalchange=='Y'){ %> 있음 <% }else{ %>-<% } %>
+              </dd>
             </dl>
           </div>
         </div>
@@ -74,8 +82,10 @@
                   <img src="carimg/<%=carInfo.carimg%>" alt="자동차 이미지">
                 </div>
               </dd>
+              <dt>색상</dt>
+              <dd><div style="width: 40px;height: 20px;border: 1px solid #000;background-color: <%=carInfo.carcolor%>;"></div>(<%=carInfo.carcolor%>)</dd>
               <dt>크기(공간)</dt>
-              <dd><%=carInfo.carsize%></dd>
+              <dd><% if(!carInfo.carsize){ %>정보 없음<% }else if(carInfo.carsize=='Z'){ %> 다인승 <% }else{ %><%=carInfo.carsize%>인승<% } %></dd>
             </dl>
           </div>
         </div>
@@ -85,45 +95,102 @@
           </div>
           <div class="box_cont">
             <dl>
-              <dt>사고이력</dt>
-              <dd><%=carInfo.acchis%></dd>
-              <dt>경매이력</dt>
-              <dd><%=carInfo.auchis%></dd>
-              <dt>정기검사</dt>
-              <dd><%=carInfo.reguins%></dd>
+              <dt>사고/침수(단순수리 제외)</dt>
+              <dd>
+                <% if(carInfo.acciorflooding=='O'){ %>유<% }else if(carInfo.acciorflooding=='X'){ %>무<% }else{ %>-<% } %>
+              </dd>
+              <dt>외판 부위의 판금, 용접수리 및 교환</dt>
+              <dd>
+                <%
+                  var skinrepair = carInfo.carskinRepair.replace('"','');
+                  if(carInfo.carskinRepair){
+                    skinrepair = skinrepair.replace('1A',' 후드');
+                    skinrepair = skinrepair.replace('1B',' 프론트휀더');
+                    skinrepair = skinrepair.replace('1C',' 도어');
+                    skinrepair = skinrepair.replace('1D',' 트렁크리드');
+                    skinrepair = skinrepair.replace('1E',' 라디에이터 서포트(볼트체결부품)');
+                    skinrepair = skinrepair.replace('1F',' 루프패널');
+                    skinrepair = skinrepair.replace('1G',' 쿼터패널');
+                    skinrepair = skinrepair.replace('1H',' 사이드실패널');
+                    skinrepair = skinrepair.replace('undefined',' 없음');
+                    skinrepair = skinrepair.replace('"','');
+                  }else{ %>-<% }
+                %>
+                <%=skinrepair%>
+              </dd>
+              <dt>주요골격 부위의 판금, 용접 수리 및 교환</dt>
+              <dd>
+                  <%
+                    var mainrepair = carInfo.carmainRepair.replace('"','');
+                    if(carInfo.carmainRepair){
+                      mainrepair = mainrepair.replace('2A',' 프론트패널');
+                      mainrepair = mainrepair.replace('2B',' 크로스멤버');
+                      mainrepair = mainrepair.replace('2C',' 인사이드패널');
+                      mainrepair = mainrepair.replace('2D',' 사이드멤버');
+                      mainrepair = mainrepair.replace('2E',' 휠하우스');
+                      mainrepair = mainrepair.replace('2F',' 대쉬패널');
+                      mainrepair = mainrepair.replace('2G',' 플로워패널');
+                      mainrepair = mainrepair.replace('2H',' 필러패널');
+                      mainrepair = mainrepair.replace('2I',' 리어패널');
+                      mainrepair = mainrepair.replace('2J',' 트렁크플로워');
+                      mainrepair = mainrepair.replace('undefined',' 없음');
+                      mainrepair = mainrepair.replace('"','');
+                    }else{ %>-<% }
+                  %>
+                  <%=mainrepair%>
+              </dd>
+              <dt>특기사항 및 점검자 의견</dt>
+              <dd><%=carInfo.carremarks%></dd>
             </dl>
           </div>
         </div>
         <div class="info_box">
           <div class="box_header">
-            <p>가격</p>
+            <p>희망 가격</p>
           </div>
           <div class="box_cont">
             <dl>
-              <dt>형식</dt>
-              <dd><%=carInfo.carform%></dd>
-              <dt>저당권</dt>
-              <dd><%=carInfo.carmort%></dd>
               <dt>가격</dt>
-              <dd><%=carInfo.carprice%></dd>
+              <dd><%=carInfo.carprice%>원</dd>
             </dl>
           </div>
         </div>
+        <div class="box_bottom">
+            <div class="center">
+                <p>※자동차관리법 제58조 제1항 및 동법시행규칙 제120조 제1항에 따라 중고자동차의 성능, 상태를 점검하였음을 확인합니다.</p>
+                <p><span><%=carInfo.confidt%></span></p><!--(점검받은 날짜 입력)-->
+            </div>
+            <div class="right">
+                <P><b>중고자동차 성능, 상태 점검자 </b><%=carInfo.inspector%>(인)</P>
+                <p><b>중고자동차 성능, 상태 고지자 </b><%=carInfo.informer%>(인)</P>
+            </div>
+        </div>
+        <div class="box_bottom">
+            <div class="center">
+                <p>※본인은 위 중고자동차 성능, 상태점검기록부를 교부받은 사실을 확인함.</p>
+                <p><span><%=carInfo.grantdt%></span></p>
+            </div>
+            <div class="right">
+                <p><span>매수인</span><%=carInfo.buyer%>(인)</p>
+            </div><!-- (사실확인 날짜 입력) -->
+        </div>
+
+        <!-- 구매자 평 -->
+        <!--
         <div class="info_box">
           <div class="box_header">
             <p>그 외</p>
           </div>
           <div class="box_cont">
             <dl>
-              <dt>문제점(결함)</dt>
-              <dd><%=carInfo.cardefect%></dd>
               <dt>평점</dt>
               <dd><%=carInfo.carstar%></dd>
-              <!--dt>댓글</dt>
-              <dd></dd-->
+              <dt>댓글</dt>
+              <dd></dd>
             </dl>
           </div>
         </div>
+        -->
       </div>
     </div>
   </body>
