@@ -117,7 +117,13 @@ module.exports = function(app){
     //search
     app.get('/search', function(req, res){
         var body = req.query;
-        var search_sql = "SELECT * FROM carinfo WHERE carid='"+body.carid+"'";
+        var search_sql = "SELECT * "
+                            +",date_format(chkdatefrom, '%Y-%m-%d') as chkfromdt "
+                            +",date_format(chkdateto, '%Y-%m-%d') as chktodt "
+                            +",date_format(firstregidate, '%Y년 %m월 %d일') as firstredt "
+                            +",date_format(carconfirmdate, '%Y년 %m월 %d일') as confidt "
+                            +",date_format(cargrantdate, '%Y년 %m월 %d일') as grantdt "
+                            +" FROM carinfo WHERE carid='"+body.carid+"'";
         client.query(search_sql, function(err, result){
             if(err){
                 console.log("issue in querystring.");
