@@ -15,6 +15,7 @@
     </div>
     <div class="menu-bar">
         <span class="menu-sub"><a href="#">차량 구매</a></span>
+        <span class="menu-sub"><a href="#">차량 판매</a></span>
         <span class="menu-sub"><a href="#">서비스 소개</a></span>
         <span class="menu-sub"><a href="#">블록정보</a></span>
     </div>
@@ -22,16 +23,25 @@
 
     <%
         for(var i=0; i<carList.length ;i++){
+
+            let carimg = carList[i].carimg;
+            carimg = carimg.split('|');
+            carimg = carimg[0];
+
+            let carsize = carList[i].carsize;
+            if(carsize == "Z"){
+                carsize = "다";
+            }
             
     %>
     <a href="./search?carid=<%=carList[i].carid%>">
     <div class="car-box">
-        <img class="car-container" src="carimg/<%=carList[i].carimg%>" alt="">
+        <img class="car-container" src="/uploads/carimg/<%=carimg%>" alt="">
         <div class="car-name">
             <ul>
                 <li class="car-font"><%=carList[i].carname%></li>
-                <li><%=carList[i].carmyear%> | <%=carList[i].cardistance%> | <%=carList[i].carsize%></li>
-                <li class="car-cost"><%=carList[i].carprice%></li>
+                <li><%=carList[i].carmyear%>년식 | <%=carList[i].cardistance%>km | <%=carsize%>인승</li>
+                <li class="car-cost"><%=carList[i].carprice%>원</li>
             </ul>
         </div>
     </div>
