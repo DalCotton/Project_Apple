@@ -22,7 +22,16 @@ var multer = require('multer');
 //imageUpload(multer, storage)
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, 'public/carimg/');//콜백함수(cb)를 통해 전송된 파일 저장 디렉토리 설정.
+        //console.log(file.fieldname);
+        if(file.fieldname == 'carImageA'){
+            cb(null, 'public/uploads/carimg');
+        }else if(file.fieldname == 'carImageB'){
+            cb(null, 'public/uploads/paperA');
+        }else if(file.fieldname == 'carImageC'){
+            cb(null, 'public/uploads/paperB');
+        }else{
+            cb(null, 'public/uploads/carimg/');//콜백함수(cb)를 통해 전송된 파일 저장 디렉토리 설정.
+        }
     },
     filename: function(req, file, cb){
         cb(null, new Date().valueOf() + "_" + file.originalname);
@@ -72,7 +81,7 @@ module.exports = function(app){
     app.get('/input', function(req, res){
         res.render('input.html');
     });
-    app.post('/input', upload.single('carImage'), function(req, res){
+    app.post('/input', upload.fields([{name: 'carImageA'},{name: 'carImageB'},{name: 'carImageC'}]), function(req, res){
         var body = req.body;
         //console.log(body.carColor);
 
@@ -81,8 +90,17 @@ module.exports = function(app){
         //filename
         //console.log(req.file.filename);
         let carImage = 'null';
-        if(req.file){
-            carImage = req.file.filename;
+        if(req.files){
+            var carimgA = req.files['carImageA'];
+                carimgA = carimgA[0].filename;
+            var carimgB = req.files['carImageB'];
+                carimgB = carimgB[0].filename;
+            var carimgC = req.files['carImageC'];
+                carimgC = carimgC[0].filename;
+            carImage = carimgA+"|"+ carimgB+"|"+ carimgC;
+            //console.log(req.files);
+            //console.log(carImage);
+            //return;
 
         }
         
