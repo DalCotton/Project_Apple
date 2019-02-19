@@ -79,7 +79,12 @@
               <dt>이미지</dt>
               <dd>
                 <div class="box_img">
-                  <img src="carimg/<%=carInfo.carimg%>" alt="자동차 이미지">
+                  <%
+                      let carimg = carInfo.carimg;
+                      carimg = carimg.split('|');
+                      carimg = carimg[0];
+                  %>
+                  <img src="uploads/carimg/<%=carimg%>" alt="자동차 이미지">
                 </div>
               </dd>
               <dt>색상</dt>
