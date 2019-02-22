@@ -9,16 +9,8 @@
     
 </head>
 <body>
+    <% include ./header.html %>
     
-    <div class="header">
-        <span class="header-name">Chain Car</span>
-    </div>
-    <div class="menu-bar">
-        <span class="menu-sub"><a href="#">차량 구매</a></span>
-        <span class="menu-sub"><a href="#">차량 판매</a></span>
-        <span class="menu-sub"><a href="#">서비스 소개</a></span>
-        <span class="menu-sub"><a href="#">블록정보</a></span>
-    </div>
     <div class="car-content">
 
     <%
@@ -40,7 +32,7 @@
         <div class="car-name">
             <ul>
                 <li class="car-font"><%=carList[i].carname%></li>
-                <li><%=carList[i].carmyear%>년식 | <%=carList[i].cardistance%>km | <%=carsize%>인승</li>
+                <li class="ft_gray"><%=carList[i].carmyear%>년식 | <%=carList[i].cardistance%>km | <%=carsize%>인승</li>
                 <li class="car-cost"><%=carList[i].carprice%>원</li>
             </ul>
         </div>
