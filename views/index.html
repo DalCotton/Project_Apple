@@ -17,64 +17,91 @@
     </script>
   </head>
   <body>
-    <div class="back_img">
-      <!--img src="#" alt="배경이미지1"-->
-    </div>
-    <span class="js-logout"><!--Logout--></span>
-    <div class = "container">
-    <header class="project-tag"><h1>Chain Car</h1>
-      <div class ="icon-space">
-        <i class="fas fa-car-side fa-2x"></i>
-    </div>
-    </header>
-    <!-- 검색창 가림(2019.02.18) -->
-    <!--div class="search-bar">
-      <input type="text" id="textfield"  placeholder="차량 고유번호를 입력하세요."/>
-      <div class ="icon-space1">
-        <a id="btnsearch" onclick="goSearch();">
-        <i class="fas fa-search fa-3x"></i>
-        </a>
-    </div>
-  </div-->
     
-     <span class="js-weather"></span>
+    <div class="header">
+      <span class="header-name"><a href="http://192.168.0.96:3000/"><img src="images/icLogoHeader.png" alt="Chain Car logo"></a></span>
+      <ul class="menu-bar">
+          <li><span class="menu-sub"><a href="http://192.168.0.96:3001/">내차 구매</a></span></li>
+          <li><span class="menu-sub"><a href="./input">내차 판매</a></span></li>
+          <li><span class="menu-sub"><a href="./service">서비스 소개</a></span></li>
+          <li><span class="menu-sub"><a href="./blinfo">블록정보</a></span></li>
+      </ul>
+      
+      <div class="logocont">
+        <div class="logocont-center">
+          <img src="images/icLogo.png" alt="Chain Car contlogo">
+          <p>당신이 원하는 차를 검색해 보세요.</p>
+        </div>
+        <div class="search-bar">
+          <ul class="search-cont">
+            <li>
+              <select name="cprice" id="cprice">
+                <option value="-">가격</option>
+                <option>~ 500만원</option>
+                <option>~ 1000만원</option>
+                <option>~ 5000만원</option>
+                <option>5000만원 ~</option>
+              </select>
+            </li>
+            <li>
+              <select name="cdis" id="cdis">
+                <option value="-">주행거리</option>
+                <option>~ 10000km</option>
+                <option>~ 50000km</option>
+                <option>100000km ~</option>
+              </select>
+            </li>
+            <li>
+              <select name="myear" id="myear">
+                <option value="-">년식</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+                <option>2011</option>
+                <option>2010</option>
+                <option>2009</option>
+                <option>2008</option>
+                <option>2007</option>
+                <option>2006</option>
+                <option>2005</option>
+                <option>2004</option>
+                <option>2003</option>
+                <option>2002</option>
+                <option>2001</option>
+                <option>2000</option>
+                <option>1999</option>
+                <option>1998</option>
+                <option>1997</option>
+                <option>1996</option>
+                <option>1995</option>
+                <option>1994</option>
+                <option>1993</option>
+                <option>1992</option>
+                <option>1991</option>
+              </select>
+            </li>
+            <li>
+              <input type="text" id="textfield"  placeholder="차량 이름을 입력하세요."/>
+            </li>
+            <li class ="icon-space1">
+              <a id="btnsearch" onclick="goSearch();">검색</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <section class = "icon-contents">
-      <div class ="back-circle car-color">
-        <a href="./buy">
-          <i class="fas fa-car-alt"></i><span class = "back-text">차랑 구매</span>
-        </a>
+    <div class="index-container">
+      <div class="container-img">
+        <img src="images/chaincarMain.png" alt="chain Car main image">
       </div>
-      <div class ="back-circle">
-        <div class ="car-barcode">
-          <a href="./input">
-            <i class="far fa-file-alt"></i></i><span class = "back-text">차량 판매</span>
-          </a>
-        </div>
-      </div>
-      <div class ="back-circle">
-        <div class ="building-color">
-          <a href="#">
-            <i class="far fa-building"></i><span class = "back-text">서비스 소개</span>
-          </a>
-        </div>
-      </div>
-      <div class ="back-circle">
-        <div class ="link-color">
-          <a href="#">
-            <i class="fas fa-link"></i> <span class = "back-text">블록 정보</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- <div class = "icon-text">
-      <span class = "back-text">블록정보</span>
-      <span class = "back-text">사과 레시피</span>
-      <span class = "back-text">사과 이야기</span>
-      <span class = "back-text">팀 소개</span>
-    </div> -->
-    
-    <script src="/js/bg.js"></script>
+    </div>
+    <!-- 디자인변경됨(2019.02.22) -->
+    <!--script src="/js/bg.js"></script-->
+    <!-- //디자인변경됨(2019.02.22) -->
   </body>
 </html>
