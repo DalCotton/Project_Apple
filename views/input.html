@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="css/search.css" />
     </head>
     <body>
+
+        <% include ./header.html %>
         <div class = "container">
             <h1>차량 등록</h1>
             <div class = "wrapper">
@@ -30,7 +32,7 @@
                 -->
                 
                 <div class="box_top">
-                    <p><span class="red">*</span>필수 입력항목입니다.</p>
+                    <!--p><span class="red">*</span>필수 입력항목입니다.</p-->
                     <p><span class="blue">*</span>이 정보는 블록체인에 저장됩니다.</p>
                 </div>
                 <form method="POST" id="carinput_frm" enctype="multipart/form-data" action="#">
@@ -40,7 +42,7 @@
                         </div>
                         <div class="box_cont">
                             <dl>
-                                <dt><span class="red">*</span>차명</dt>
+                                <dt><!--span class="red">*</span-->차명</dt>
                                 <dd>
                                     <input type="text" name="carName" maxlength="50" class="input-info">
                                 </dd>
@@ -48,7 +50,7 @@
                                 <dd>
                                     <input type="text" name="carNum" class="input-info" maxlength="10">
                                 </dd>
-                                <dt><span class="red">*</span>차대번호</dt>
+                                <dt><!--span class="red">*</span-->차대번호</dt>
                                 <dd>
                                     <input type="text" name="carId" class="input-info">
                                     <!--p><span class="red">※이미 해당 차대번호가 존재합니다.</span></p-->
@@ -130,12 +132,12 @@
                         </div>
                         <div class="box_cont">
                             <dl>
-                                <dt>사고/침수(단순수리 제외)</dt>
+                                <dt><span class="blue">*</span>사고/침수(단순수리 제외)</dt>
                                 <dd>
                                     <input type="radio" name="acciorflooding" id="accident" class="input-info" value="O" checked><label for="accident">유</label>
                                     <input type="radio" name="acciorflooding" id="Noaccident" class="input-info" value="X"><label for="Noaccident">무</label>
                                 </dd>
-                                <dt>외판 부위의 판금, 용접수리 및 교환</dt>
+                                <dt><span class="blue">*</span>외판 부위의 판금, 용접수리 및 교환</dt>
                                 <dd>
                                     <p><input type="checkbox" name="skinRepair" id="hood" value="1A"><label for="hood">후드</label></p>
                                     <p><input type="checkbox" name="skinRepair" id="frontFender" value="1B"><label for="frontFender">프론트휀더</label></p>
@@ -146,7 +148,7 @@
                                     <p><input type="checkbox" name="skinRepair" id="quarterPanel" value="1G"><label for="quarterPanel">쿼터패널</label></p>
                                     <p><input type="checkbox" name="skinRepair" id="sideSealPanel" value="1H"><label for="sideSealPanel">사이드실패널</label></p>
                                 </dd>
-                                <dt>주요골격 부위의 판금, 용접 수리 및 교환</dt>
+                                <dt><span class="blue">*</span>주요골격 부위의 판금, 용접 수리 및 교환</dt>
                                 <dd>
                                     <p><input type="checkbox" name="mainRepair" id="frontPanel" value="2A"><label for="frontPanel">프론트패널</label></p>
                                     <p><input type="checkbox" name="mainRepair" id="crossMember" value="2B"><label for="crossMember">크로스멤버</label></p>
@@ -195,7 +197,7 @@
                                             </div>
                                     </div>
                                 </dd>
-                                <dt>중고자동차 성능.상태 점검기록부</dt>
+                                <dt><span class="blue">*</span>중고자동차 성능.상태 점검기록부</dt>
                                 <dd>
                                     <div class="box_img">
                                         <input type="file" name="carImageC" id="imgUpload" title="이미지 올리기">
