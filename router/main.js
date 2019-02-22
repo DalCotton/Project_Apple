@@ -182,4 +182,14 @@ module.exports = function(app){
             }
         });
     });
+
+    //service
+    app.get('/service', function(req, res){
+                    res.render('service.html');
+    });
+
+    //blockinfo
+    app.get('/blinfo', function(req, res){
+                    res.render('blinfo.html');
+    });
 }
