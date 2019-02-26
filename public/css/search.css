@@ -183,3 +183,48 @@ span.blue {
 .box_btn > .frm_btn:focus {
     background-color: coral;
 }
+
+
+
+/* usemeth,service */
+.service_line {
+    float: left;
+    margin: 15px;
+    font-size: 15px;
+}
+.service_line > li {
+    float: left;
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    margin: 10px 0;
+}
+.service_line > li p {
+    border-bottom: 7px dashed rgba(146, 244, 207, 0.98);
+}
+.service_line > li b {
+    font-size: 40px;
+    color: rgb(152, 192, 244);
+}
+
+dl.service_line {
+    height: 300px;
+}
+
+dl.service_line:first-child {
+    padding-right: 25px;
+    border-right: 4px solid rgba(146, 244, 207, 0.98);
+}
+.service_line > dt {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(152, 192, 244);
+}
+.service_line > dd {
+    line-height: 50px;
+}
