@@ -183,13 +183,13 @@ module.exports = function(app){
         });
     });
 
+    //usemeth
+    app.get('/usemeth', function(req, res){
+                    res.render('usemeth.html');
+    });
+
     //service
     app.get('/service', function(req, res){
                     res.render('service.html');
-    });
-
-    //blockinfo
-    app.get('/blinfo', function(req, res){
-                    res.render('blinfo.html');
     });
 }
