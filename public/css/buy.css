@@ -61,8 +61,15 @@ body {
 }
 .menu-bar > li {
     float: left;
-    margin: 10px;
+    margin: 10px 15px;
 }
+
+.menu-bar > li a:hover,
+.menu-bar > li a:focus
+ {
+     border-bottom: 3px solid #fff;
+}
+
 
 .menu-sub{
     /* justify-content: center;
